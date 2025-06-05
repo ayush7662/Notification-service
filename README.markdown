@@ -20,7 +20,10 @@ A Node.js-based API for sending email, SMS, and in-app notifications to users, b
 - [License](#license)
 
 - ## Live url
--  https://notification-service-oo9u.onrender.com 
+-  https://notification-service-oo9u.onrender.com
+
+-  ## Github repository
+-  https://github.com/ayush7662/Notification-service.git
 
 ## Overview
 The Notification Service allows sending notifications to users via:
