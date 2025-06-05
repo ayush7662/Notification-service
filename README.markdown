@@ -2,6 +2,8 @@
 
 A Node.js-based API for sending email, SMS, and in-app notifications to users, built with Express, SQLite, Bull (Redis queue), Nodemailer, and Twilio. The service supports user registration, notification queuing with retries, and retrieval of notification history, meeting the requirements of a scalable notification system.
 
+## for creating an user please used phone number as +918709610659 ##
+
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
@@ -97,7 +99,7 @@ Notifications are queued using Bull (Redis) with up to 3 retries for failed deli
 5. **Verify Twilio Phone Numbers**:
    - For trial accounts, verify recipient phone numbers:
      - Go to [console.twilio.com](https://console.twilio.com) > Phone Numbers > Manage > Verified Caller IDs.
-     - Add and verify numbers (e.g., `+917533XXXX`).
+     - Add and verify numbers (e.g., `+918709610659`).
 
 ## Running the Service
 1. Start the server:
@@ -132,8 +134,8 @@ Notifications are queued using Bull (Redis) with up to 3 retries for failed deli
      - Body:
        ```json
        {
-         "email": "gauravjikar070806@gmail.com",
-         "phone": "+91your-verified-number"
+         "email": "xyz@gmail.com",
+         "phone": "+918709610659"
        }
        ```
      - Expected: `200 OK`, `{"status":"User created or updated","userId":"testuser1"}`
@@ -202,31 +204,3 @@ Notifications are queued using Bull (Redis) with up to 3 retries for failed deli
 | `/notifications` | POST | Send notification | `{"userId":"testuser1","type":"sms","content":"Test"}` |
 | `/users/{id}/notifications` | GET | Retrieve notifications | Query: `?type=sms` (optional) |
 
-## Troubleshooting
-
-- **Twilio: “Unverified number”**:
-  - Verify the recipient’s phone in [console.twilio.com](https://console.twilio.com) > Verified Caller IDs.
-  - Use a verified number (e.g., `+917533XXXX` after verification).
-  - Check `TWILIO_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_PHONE` in `.env`.
-
-- **Gmail: “535-5.7.8 Username and Password not accepted”**:
-  - Regenerate App Password in [myaccount.google.com](https://myaccount.google.com) > Security.
-  - Ensure `GMAIL_PASS` is quoted if it contains `#`.
-  - Verify `GMAIL_USER` matches the email used for the App Password.
-
-- **Redis Connection**:
-  - Ensure `redis-server` is running (`redis-cli ping` returns `PONG`).
-  - Check `REDIS_URL` in `.env`.
-
-- **SQLite Errors**:
-  - Verify `notifications.db` exists.
-  - Clear failed jobs: `sqlite3 notifications.db "DELETE FROM notifications;"`
-
-## Deliverables
-- Source code in `notification-service/` (GitHub repository).
-- Postman collection: `postman_collection.json`.
-- SQLite database: `notifications.db`.
-- README: This file (`README.md`).
-
-## License
-MIT License. See [LICENSE](LICENSE) for details.
