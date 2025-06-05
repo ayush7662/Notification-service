@@ -1,3 +1,5 @@
+
+
 # Notification Service
 
 A Node.js-based API for sending email, SMS, and in-app notifications to users, built with Express, SQLite, Bull (Redis queue), Nodemailer, and Twilio. The service supports user registration, notification queuing with retries, and retrieval of notification history, meeting the requirements of a scalable notification system.
@@ -16,6 +18,9 @@ A Node.js-based API for sending email, SMS, and in-app notifications to users, b
 - [Troubleshooting](#troubleshooting)
 - [Deliverables](#deliverables)
 - [License](#license)
+
+- ## Live url
+-  https://notification-service-oo9u.onrender.com 
 
 ## Overview
 The Notification Service allows sending notifications to users via:
